@@ -41,6 +41,7 @@ build:
 	C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\msmpi.lib
 		
 Узнав эти пути:
+
 	%MSMPI_INC% = C:\Program Files (x86)\Microsoft SDKs\MPI\Include\
 	%MSMPI_LIB64% = C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\
 Подставляем в команду из "Способ 1" и получаем:
