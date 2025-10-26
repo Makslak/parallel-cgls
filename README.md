@@ -8,15 +8,16 @@ Visual studio
 build:
 	Способ 1:
 	
-		cl /O2 /std:c++20 /EHsc main.cpp ParallelBlockNormalCG.cpp ^
-  		/I"%MSMPI_INC%" /Fe:solver.exe ^
-		/link /LIBPATH:"%MSMPI_LIB64%" msmpi.lib
+	cl /O2 /std:c++20 /EHsc main.cpp ParallelBlockNormalCG.cpp ^
+  	/I"%MSMPI_INC%" /Fe:solver.exe ^
+	/link /LIBPATH:"%MSMPI_LIB64%" msmpi.lib
+
 Если не работает 1:
 	Узнаем нужные пути:	
 		Cпособ 1:
 		
-			echo %MSMPI_INC%
-			echo %MSMPI_LIB64%
+	echo %MSMPI_INC%
+	echo %MSMPI_LIB64%
 			
 Вывод у меня:
 	
@@ -44,9 +45,9 @@ build:
 	%MSMPI_LIB64% = C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\
 Подставляем в команду из "Способ 1" и получаем:
 
-		cl /O2 /std:c++20 /EHsc main.cpp ParallelBlockNormalCG.cpp ^
-		/I"C:\Program Files (x86)\Microsoft SDKs\MPI\Include" /Fe:solver.exe ^
- 		/link /LIBPATH:"C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64" msmpi.lib
+	cl /O2 /std:c++20 /EHsc main.cpp ParallelBlockNormalCG.cpp ^
+	/I"C:\Program Files (x86)\Microsoft SDKs\MPI\Include" /Fe:solver.exe ^
+ 	/link /LIBPATH:"C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64" msmpi.lib
 
 Получаем solver.exe, и запускаем:
 
