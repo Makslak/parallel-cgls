@@ -56,16 +56,17 @@ build:
 
 
 Примеры:
-C:\path\to\source_code>mpiexec -n 1 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
+
+path\to\source_code>mpiexec -n 1 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
  M=1000 N=1000 alpha=0.001 iters=1000 procs=1 solve_ms=904.761
 
-C:\path\to\source_code>mpiexec -n 4 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
+path\to\source_code>mpiexec -n 4 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
  M=1000 N=1000 alpha=0.001 iters=1000 procs=4 solve_ms=251.225
 
-C:\path\to\source_code>mpiexec -n 9 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
+path\to\source_code>mpiexec -n 9 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
  M=1000 N=1000 alpha=0.001 iters=1000 procs=9 solve_ms=151.774
 
-C:\path\to\source_code>mpiexec -n 16 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
+path\to\source_code>mpiexec -n 16 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
  M=1000 N=1000 alpha=0.001 iters=1000 procs=16 solve_ms=3952.7
 
 (Ryzen 5 3600 6 ядер / 12 потоков)
