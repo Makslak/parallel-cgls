@@ -3,45 +3,54 @@ C++ 20
 Release
 Visual studio
 
-cd C:\path\to\source_code
+	cd C:\path\to\source_code
 
 build:
 	Способ 1:
-	cl /O2 /std:c++20 /EHsc main.cpp ParallelBlockNormalCG.cpp ^
-  	/I"%MSMPI_INC%" /Fe:solver.exe ^
-	/link /LIBPATH:"%MSMPI_LIB64%" msmpi.lib
-
-
-	Если не работает 1:
-		Узнаем нужные пути:	
+	
+		cl /O2 /std:c++20 /EHsc main.cpp ParallelBlockNormalCG.cpp ^
+  		/I"%MSMPI_INC%" /Fe:solver.exe ^
+		/link /LIBPATH:"%MSMPI_LIB64%" msmpi.lib
+Если не работает 1:
+	Узнаем нужные пути:	
 		Cпособ 1:
+		
 			echo %MSMPI_INC%
 			echo %MSMPI_LIB64%
-			Вывод у меня:
-				echo %MSMPI_INC%
-				C:\Program Files (x86)\Microsoft SDKs\MPI\Include\
+			
+Вывод у меня:
+	
+	echo %MSMPI_INC%
+	C:\Program Files (x86)\Microsoft SDKs\MPI\Include\
 
-				echo %MSMPI_LIB64%
-				C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\
-		Способ 2:
-			where /r "C:\Program Files (x86)" mpi.h
-			where /r "C:\Program Files (x86)" msmpi.lib
-			Вывод у меня:
-				where /r "C:\Program Files (x86)" mpi.h
-				C:\Program Files (x86)\Microsoft SDKs\MPI\Include\mpi.h
+	echo %MSMPI_LIB64%
+	C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\
+		
+Способ 2:
+	
+	where /r "C:\Program Files (x86)" mpi.h
+	where /r "C:\Program Files (x86)" msmpi.lib
+		
+Вывод у меня:
 
-				where /r "C:\Program Files (x86)" msmpi.lib
-				C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\msmpi.lib
-		Узнав эти пути:
-			%MSMPI_INC% = C:\Program Files (x86)\Microsoft SDKs\MPI\Include\
-			%MSMPI_LIB64% = C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\
-		Подставляем в команду из "Способ 1" и получаем:
+	where /r "C:\Program Files (x86)" mpi.h
+	C:\Program Files (x86)\Microsoft SDKs\MPI\Include\mpi.h
+
+	where /r "C:\Program Files (x86)" msmpi.lib
+	C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\msmpi.lib
+		
+Узнав эти пути:
+	%MSMPI_INC% = C:\Program Files (x86)\Microsoft SDKs\MPI\Include\
+	%MSMPI_LIB64% = C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64\
+Подставляем в команду из "Способ 1" и получаем:
+
 		cl /O2 /std:c++20 /EHsc main.cpp ParallelBlockNormalCG.cpp ^
 		/I"C:\Program Files (x86)\Microsoft SDKs\MPI\Include" /Fe:solver.exe ^
  		/link /LIBPATH:"C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64" msmpi.lib
 
 Получаем solver.exe, и запускаем:
-mpiexec -n 4 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
+
+	mpiexec -n 4 solver.exe -M 1000 -N 1000 -alpha 1e-3 -iters 1000
 
 
 Примеры:
